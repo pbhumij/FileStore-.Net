@@ -1,0 +1,153 @@
+{
+  "version": "0.1",
+  "toolInfo": {
+    "toolName": "Microsoft (R) Visual C# Compiler",
+    "productVersion": "1.0.0",
+    "fileVersion": "1.0.0"
+  },
+  "issues": [
+    {
+      "ruleId": "CS1998",
+      "locations": [
+        {
+          "analysisTarget": [
+            {
+              "uri": "C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\FileStore.cs",
+              "region": {
+                "startLine": 139,
+                "startColumn": 50,
+                "endLine": 139,
+                "endColumn": 60
+              }
+            }
+          ]
+        }
+      ],
+      "fullMessage": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+      "properties": {
+        "severity": "Warning",
+        "warningLevel": "1",
+        "defaultSeverity": "Warning",
+        "title": "Async method lacks 'await' operators and will run synchronously",
+        "category": "Compiler",
+        "isEnabledByDefault": "True",
+        "customTags": "Compiler;Telemetry"
+      }
+    },
+    {
+      "ruleId": "CS1998",
+      "locations": [
+        {
+          "analysisTarget": [
+            {
+              "uri": "C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\FileStore.cs",
+              "region": {
+                "startLine": 197,
+                "startColumn": 35,
+                "endLine": 197,
+                "endColumn": 47
+              }
+            }
+          ]
+        }
+      ],
+      "fullMessage": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+      "properties": {
+        "severity": "Warning",
+        "warningLevel": "1",
+        "defaultSeverity": "Warning",
+        "title": "Async method lacks 'await' operators and will run synchronously",
+        "category": "Compiler",
+        "isEnabledByDefault": "True",
+        "customTags": "Compiler;Telemetry"
+      }
+    },
+    {
+      "ruleId": "S112",
+      "locations": [
+        {
+          "analysisTarget": [
+            {
+              "uri": "C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\FileStore.cs",
+              "region": {
+                "startLine": 191,
+                "startColumn": 26,
+                "endLine": 191,
+                "endColumn": 50
+              }
+            }
+          ]
+        }
+      ],
+      "shortMessage": "'System.Exception' should not be thrown by user code.",
+      "fullMessage": "Throwing such general exceptions as Exception, SystemException, ApplicationException, IndexOutOfRangeException, NullReferenceException, OutOfMemoryException and ExecutionEngineException prevents calling methods from handling true, system-generated exceptions differently than application-generated errors. ",
+      "properties": {
+        "severity": "Warning",
+        "warningLevel": "1",
+        "defaultSeverity": "Warning",
+        "title": "General exceptions should never be thrown",
+        "category": "Sonar Code Smell",
+        "helpLink": "https://rules.sonarsource.com/csharp/RSPEC-112",
+        "isEnabledByDefault": "True"
+      }
+    },
+    {
+      "ruleId": "S112",
+      "locations": [
+        {
+          "analysisTarget": [
+            {
+              "uri": "C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\FileStore.cs",
+              "region": {
+                "startLine": 246,
+                "startColumn": 22,
+                "endLine": 246,
+                "endColumn": 46
+              }
+            }
+          ]
+        }
+      ],
+      "shortMessage": "'System.Exception' should not be thrown by user code.",
+      "fullMessage": "Throwing such general exceptions as Exception, SystemException, ApplicationException, IndexOutOfRangeException, NullReferenceException, OutOfMemoryException and ExecutionEngineException prevents calling methods from handling true, system-generated exceptions differently than application-generated errors. ",
+      "properties": {
+        "severity": "Warning",
+        "warningLevel": "1",
+        "defaultSeverity": "Warning",
+        "title": "General exceptions should never be thrown",
+        "category": "Sonar Code Smell",
+        "helpLink": "https://rules.sonarsource.com/csharp/RSPEC-112",
+        "isEnabledByDefault": "True"
+      }
+    },
+    {
+      "ruleId": "S112",
+      "locations": [
+        {
+          "analysisTarget": [
+            {
+              "uri": "C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\FileStore.cs",
+              "region": {
+                "startLine": 341,
+                "startColumn": 22,
+                "endLine": 341,
+                "endColumn": 46
+              }
+            }
+          ]
+        }
+      ],
+      "shortMessage": "'System.Exception' should not be thrown by user code.",
+      "fullMessage": "Throwing such general exceptions as Exception, SystemException, ApplicationException, IndexOutOfRangeException, NullReferenceException, OutOfMemoryException and ExecutionEngineException prevents calling methods from handling true, system-generated exceptions differently than application-generated errors. ",
+      "properties": {
+        "severity": "Warning",
+        "warningLevel": "1",
+        "defaultSeverity": "Warning",
+        "title": "General exceptions should never be thrown",
+        "category": "Sonar Code Smell",
+        "helpLink": "https://rules.sonarsource.com/csharp/RSPEC-112",
+        "isEnabledByDefault": "True"
+      }
+    }
+  ]
+}

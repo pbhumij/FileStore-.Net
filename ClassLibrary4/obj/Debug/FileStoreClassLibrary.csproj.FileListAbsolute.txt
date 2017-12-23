@@ -1,0 +1,11 @@
+C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\obj\Debug\FileStoreClassLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\bin\Debug\ClassLibrary4.dll
+C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\bin\Debug\ClassLibrary4.pdb
+C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\bin\Debug\AWSSDK.Core.dll
+C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\bin\Debug\AWSSDK.S3.dll
+C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\bin\Debug\AWSSDK.Core.pdb
+C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\bin\Debug\AWSSDK.Core.xml
+C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\bin\Debug\AWSSDK.S3.pdb
+C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\bin\Debug\AWSSDK.S3.xml
+C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\obj\Debug\ClassLibrary4.dll
+C:\Users\Quarx\source\repos\ClassLibrary4\ClassLibrary4\obj\Debug\ClassLibrary4.pdb

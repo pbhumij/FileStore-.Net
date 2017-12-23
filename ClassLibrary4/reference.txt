@@ -1,0 +1,98 @@
+﻿
+// For sequential access
+        public async Task<FileChunkListContainer> UploadFileAsync(String filePath)
+        {
+            FileChunkListContainer container = new FileChunkListContainer();
+            container = SetInitialContainerProperties(container, filePath);
+            Boolean uploadStatus = false;
+            if (File.Exists(filePath))
+            {
+                try
+                {
+                    MemoryMappedFile memoryMappedFile = MemoryMappedFile.CreateFromFile(filePath, FileMode.Open, "mappedfile");
+                    MemoryMappedViewAccessor accessor = memoryMappedFile.CreateViewAccessor();
+                    int offset = 0;
+                    int readBytes = 0;
+                    byte[] bytes = new byte[1024 * 1024 * 1];
+                    while ((readBytes = accessor.ReadArray(1024 * 1024 * offset, bytes, 0, bytes.Length)) > 0)
+                    {
+                        FileChunkObject chunk = new FileChunkObject();
+                        chunk = SetInitialChunkProperties(chunk);
+                        chunk.Offset = 1024 * 1024 * offset;
+                        Stream uploadStream = new MemoryStream(readBytes);
+                        uploadStream.Write(bytes, 0, readBytes);
+                        ChunkOperation newUpload = new ChunkOperation(client, chunk, uploadStream);
+                        Task<Boolean> uploadTask = newUpload.Upload();
+                        uploadStatus = await uploadTask;
+                        chunk = UpdateChunkProperties(chunk, uploadStatus, readBytes);
+                        container.chunkList.Add(chunk);
+                        offset++;
+                    }
+                    accessor.Dispose();
+                    memoryMappedFile.Dispose();
+                }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    //do nothing
+                }
+
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
+                finally
+                {
+                    container = UpdateContainerProperties(container);
+                }
+
+            }
+            return container;
+        }
+
+
+
+
+// For sequential access
+        public async Task<Boolean> DownloadFileAsync(FileChunkListContainer container)
+        {
+            Boolean downloadStatus = false;
+            int sizeOfFileToDownload = container.FileSize;
+            container = SetInitialContainerProperties(container);
+            string downloadPath = @"C:\\Users\\Quarx\\Music\\"+container.CloudFileName;
+            if (File.Exists(downloadPath))
+            {
+                downloadPath = @"C:\\Users\\Quarx\\Music\\"+container.CloudFileName+"copy";
+            }
+            MemoryMappedFile memoryMappedFile = MemoryMappedFile.CreateFromFile(downloadPath, FileMode.CreateNew, "log-map", sizeOfFileToDownload);
+            MemoryMappedViewAccessor accessor = null;
+            MemoryStream downloadStream = null;
+            foreach(FileChunkObject chunk in container.chunkList)
+            {
+                try
+                {
+                    accessor = memoryMappedFile.CreateViewAccessor(chunk.Offset, chunk.size);
+                    downloadStream = new MemoryStream();
+                    ChunkOperation toDownload = new ChunkOperation(client, chunk, accessor);
+                    Task<MemoryStream> task = toDownload.Download();
+                    downloadStream = await task;
+                    downloadStream.Position = 0;
+                    Byte[] bytes = new Byte[1024 * 1024 * 1];
+                    int readBytes = downloadStream.Read(bytes, 0, bytes.Length);
+                    accessor.WriteArray(0, bytes, 0, readBytes);
+                    chunk.ChunkStatus = true;
+                    chunk.size = readBytes;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
+                finally
+                {
+                    accessor.Dispose();
+                    downloadStream.Dispose();
+                }
+            }
+            container = UpdateContainerProperties(container);
+            downloadStatus = container.status;
+            return downloadStatus;
+        }
